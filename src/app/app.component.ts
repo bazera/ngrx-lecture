@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.store.dispatch(CollectionActions.addToCollection({ movie }));
   }
 
-  removeFromCollection(movieId: string) {
+  removeFromCollection(movieId: number) {
     this.store.dispatch(CollectionActions.removeFromCollection({ movieId }));
   }
 

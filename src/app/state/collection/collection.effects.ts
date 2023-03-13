@@ -38,6 +38,17 @@ export class CollectionEffects {
     )
   );
 
+  removeFromCollection$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CollectionActions.removeFromCollection),
+      switchMap((action) =>
+        this.movieApiService
+          .removeFromCollection(action.movieId)
+          .pipe(map(() => CollectionActions.loadCollection()))
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private movieApiService: MovieApiService

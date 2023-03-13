@@ -21,4 +21,8 @@ export class MovieApiService {
   addToCollection(body: Movie) {
     return this.http.post(`${API_BASE}/collection`, body);
   }
+
+  removeFromCollection(id: number) {
+    return this.http.delete(`${API_BASE}/collection/${id}`);
+  }
 }

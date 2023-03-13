@@ -9,11 +9,6 @@ const initialState: CollectionState = {
 
 export const collectionReducer = createReducer(
   initialState,
-  on(CollectionActions.removeFromCollection, (state, { movieId }) => {
-    return {
-      list: state.list.filter((m) => m.id !== movieId),
-    };
-  }),
   on(CollectionActions.loadCollectionSuccess, (_, { movies }) => ({
     list: movies,
   })),
