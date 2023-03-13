@@ -3,9 +3,10 @@ import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { tap } from 'rxjs';
 import { Movie } from './movie.model';
-import { MovieService } from './movie.service';
+import { AppState } from './state/app.state';
 import { CollectionActions } from './state/collection.actions';
 import { selectCollection } from './state/collection.selectors';
+import { loadMovies } from './state/movie.actions';
 import { selectMovies } from './state/movie.selectors';
 
 @Component({
@@ -15,6 +16,7 @@ import { selectMovies } from './state/movie.selectors';
 })
 export class AppComponent implements OnInit {
   movies$ = this.store.select(selectMovies);
+
   collection$ = this.store.select(selectCollection).pipe(
     tap((collection) => {
       if (collection.errorMessage) {
@@ -23,11 +25,7 @@ export class AppComponent implements OnInit {
     })
   );
 
-  constructor(
-    private movieService: MovieService,
-    private store: Store,
-    private toastr: ToastrService
-  ) {}
+  constructor(private store: Store<AppState>, private toastr: ToastrService) {}
 
   addToCollection(movie: Movie) {
     this.store.dispatch(CollectionActions.addToCollection({ movie }));
@@ -38,6 +36,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.getMovies();
+    this.store.dispatch(loadMovies());
   }
 }

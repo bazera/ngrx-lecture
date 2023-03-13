@@ -10,6 +10,8 @@ import { collectionReducer } from './state/collection.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { movieReducer } from './state/movie.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { MovieEffects } from './state/movie.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,7 @@ import { movieReducer } from './state/movie.reducer';
       collection: collectionReducer,
       movies: movieReducer,
     }),
+    EffectsModule.forRoot([MovieEffects]),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
