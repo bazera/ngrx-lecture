@@ -3,11 +3,13 @@ import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { tap } from 'rxjs';
 import { Movie } from './movie.model';
-import { AppState } from './state/app.state';
-import { CollectionActions } from './state/collection.actions';
-import { selectCollection } from './state/collection.selectors';
-import { loadMovies } from './state/movie.actions';
-import { selectMovies } from './state/movie.selectors';
+import {
+  AppState,
+  CollectionActions,
+  loadMovies,
+  selectCollection,
+  selectMovies,
+} from './state';
 
 @Component({
   selector: 'app-root',
@@ -37,5 +39,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadMovies());
+    this.store.dispatch(CollectionActions.loadCollection());
   }
 }

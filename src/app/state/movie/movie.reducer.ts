@@ -1,6 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Movie } from '../movie.model';
-import { MoviesState } from './app.state';
+import { MoviesState } from '../app.state';
 import { loadMoviesFail, loadMoviesSuccess } from './movie.actions';
 
 const initialState: MoviesState = {

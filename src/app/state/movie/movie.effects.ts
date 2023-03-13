@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MovieApiService } from '../movie-api.service';
+import { MovieApiService } from '../../movie-api.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { loadMoviesSuccess, loadMovies, loadMoviesFail } from './movie.actions';

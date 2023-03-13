@@ -6,12 +6,15 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppState } from './state/app.state';
-import { collectionReducer } from './state/collection.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { movieReducer } from './state/movie.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { MovieEffects } from './state/movie.effects';
+import {
+  CollectionEffects,
+  collectionReducer,
+  MovieEffects,
+  movieReducer,
+} from './state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +25,7 @@ import { MovieEffects } from './state/movie.effects';
       collection: collectionReducer,
       movies: movieReducer,
     }),
-    EffectsModule.forRoot([MovieEffects]),
+    EffectsModule.forRoot([MovieEffects, CollectionEffects]),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
