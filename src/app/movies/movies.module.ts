@@ -5,6 +5,7 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { MovieEffects, movieReducer } from './state';
 import { EffectsModule } from '@ngrx/effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [MoviesComponent],
@@ -13,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
     MoviesRoutingModule,
     StoreModule.forFeature('movies', movieReducer),
     EffectsModule.forFeature([MovieEffects]),
+    TranslateModule,
   ],
 })
 export class MoviesModule {}

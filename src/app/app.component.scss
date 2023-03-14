@@ -1,21 +1,26 @@
-ul {
-  margin: 0;
-  padding: 0;
-
+section {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 
-  li {
+  ul {
     margin: 0;
     padding: 0;
 
-    cursor: pointer;
+    display: flex;
+    gap: 10px;
 
-    text-decoration: none;
-    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
 
-    &.active {
-      color: rgb(15, 103, 15);
+      cursor: pointer;
+
+      text-decoration: none;
+      list-style: none;
+
+      &.active {
+        color: rgb(15, 103, 15);
+      }
     }
   }
 }

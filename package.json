@@ -20,6 +20,8 @@
     "@angular/router": "^14.2.0",
     "@ngrx/effects": "^14.3.3",
     "@ngrx/store": "^14.3.3",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "json-server": "^0.17.2",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.5.0",

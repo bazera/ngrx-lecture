@@ -5,6 +5,7 @@ import { CollectionRoutingModule } from './collection-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { CollectionEffects, collectionReducer } from './state';
 import { EffectsModule } from '@ngrx/effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [CollectionComponent],
@@ -13,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
     CollectionRoutingModule,
     StoreModule.forFeature('collection', collectionReducer),
     EffectsModule.forFeature([CollectionEffects]),
+    TranslateModule,
   ],
 })
 export class CollectionModule {}

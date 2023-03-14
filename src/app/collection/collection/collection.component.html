@@ -1,4 +1,4 @@
-<h3>Collection</h3>
+<h3>{{ "Collection" | translate }}</h3>
 <hr />
 <ng-container *ngIf="collection$ | async as collection">
   <ul *ngIf="collection?.list?.length; else empty">

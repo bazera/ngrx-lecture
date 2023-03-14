@@ -1,6 +1,23 @@
-<ul>
-  <li routerLink="movies" routerLinkActive="active">Movies</li>
-  <li routerLink="collection" routerLinkActive="active">Collection</li>
-</ul>
+<section>
+  <ul>
+    <li routerLink="movies" routerLinkActive="active">
+      {{ "Movies" | translate }}
+    </li>
+    <li routerLink="collection" routerLinkActive="active">
+      {{ "Collection" | translate }}
+    </li>
+  </ul>
+  <ul>
+    <li (click)="changeLanguage('en')" [class.active]="isLang('en')">
+      {{ "Languages.English" | translate }}
+    </li>
+    <li (click)="changeLanguage('ka')" [class.active]="isLang('ka')">
+      {{ "Languages.Georgian" | translate }}
+    </li>
+    <li (click)="changeLanguage('fr')" [class.active]="isLang('fr')">
+      {{ "Languages.French" | translate }}
+    </li>
+  </ul>
+</section>
 <hr />
 <router-outlet></router-outlet>

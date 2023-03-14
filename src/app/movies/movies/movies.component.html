@@ -1,4 +1,4 @@
-<h3>Movies</h3>
+<h3>{{ "Movies" | translate }}</h3>
 <hr />
 <ng-container *ngIf="movies$ | async as movies">
   <ul *ngIf="!movies.errorMessage; else error">
