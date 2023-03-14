@@ -1,5 +1,5 @@
 import { createFeatureSelector } from '@ngrx/store';
-import { CollectionState } from '../app.state';
+import { CollectionState } from './collection.state';
 
 export const selectCollection =
   createFeatureSelector<CollectionState>('collection');

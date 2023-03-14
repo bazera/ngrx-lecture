@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MovieApiService } from '../../movie-api.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { CollectionActions } from './collection.actions';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class CollectionEffects {
@@ -26,6 +27,7 @@ export class CollectionEffects {
       switchMap((action) =>
         this.movieApiService.addToCollection(action.movie).pipe(
           map(() => CollectionActions.loadCollection()),
+          tap(() => this.router.navigate(['../collection'])),
           catchError(() =>
             of(
               CollectionActions.addToCollectionError({
@@ -51,6 +53,7 @@ export class CollectionEffects {
 
   constructor(
     private actions$: Actions,
-    private movieApiService: MovieApiService
+    private movieApiService: MovieApiService,
+    private router: Router
   ) {}
 }

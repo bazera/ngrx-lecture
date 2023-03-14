@@ -1,0 +1,21 @@
+ul {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 10px;
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    cursor: pointer;
+
+    text-decoration: none;
+    list-style: none;
+
+    &.active {
+      color: rgb(15, 103, 15);
+    }
+  }
+}

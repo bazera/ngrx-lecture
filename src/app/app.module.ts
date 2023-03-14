@@ -5,27 +5,19 @@ import { StoreModule } from '@ngrx/store';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { AppState } from './state/app.state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EffectsModule } from '@ngrx/effects';
-import {
-  CollectionEffects,
-  collectionReducer,
-  MovieEffects,
-  movieReducer,
-} from './state';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot<AppState>({
-      collection: collectionReducer,
-      movies: movieReducer,
-    }),
-    EffectsModule.forRoot([MovieEffects, CollectionEffects]),
+    AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],

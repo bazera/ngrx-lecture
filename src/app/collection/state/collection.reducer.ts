@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { CollectionState } from '../app.state';
 import { CollectionActions } from './collection.actions';
+import { CollectionState } from './collection.state';
 
 const initialState: CollectionState = {
   errorMessage: '',

@@ -1,23 +1,6 @@
-<h3>Movies</h3>
+<ul>
+  <li routerLink="movies" routerLinkActive="active">Movies</li>
+  <li routerLink="collection" routerLinkActive="active">Collection</li>
+</ul>
 <hr />
-<ng-container *ngIf="movies$ | async as movies">
-  <ul *ngIf="!movies.errorMessage; else error">
-    <li *ngFor="let movie of movies.list; let i = index">
-      <span>{{ i + 1 }}. {{ movie.name }}</span>
-      <button (click)="addToCollection(movie)">Add to my collection</button>
-    </li>
-  </ul>
-  <ng-template #error>{{ movies.errorMessage }}</ng-template>
-</ng-container>
-<br />
-<h3>Collection</h3>
-<hr />
-<ng-container *ngIf="collection$ | async as collection">
-  <ul *ngIf="collection?.list?.length; else empty">
-    <li *ngFor="let movie of collection?.list; let i = index">
-      <span>{{ i + 1 }}. {{ movie.name }}</span>
-      <button (click)="removeFromCollection(movie.id)">X</button>
-    </li>
-  </ul>
-</ng-container>
-<ng-template #empty>Empty</ng-template>
+<router-outlet></router-outlet>
